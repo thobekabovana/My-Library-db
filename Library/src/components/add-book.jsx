@@ -1,16 +1,11 @@
-export  function addbook({book}) {
-// console.log(book)
 
-// pulling data
-let myBooks =  JSON.parse(localStorage.getItem("bookTable"))
-// console.log(myBooks,"pull")
- myBooks.push(book)
-console.log(myBooks,"pushed")
+export function addbook(book){
+    let myBooks = JSON.parse(localStorage.getItem("bookTable"));
+    console.log("prop of the ADDBOOK",book);
 
-// return the code 
-// localStorage.setItem('bookTable')
-
-} 
+    myBooks.push(book);
+    localStorage.setItem("bookTable",JSON.stringify(myBooks))
+}
 
 
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import {addbook} from './components/add-book';
-import Remove from './components/removeBook';
-import Update from './components/update';
+
 import Register from './components/register';
 import Display from './components/displayBook';
 import BookCard from './components/bookCard';
@@ -56,11 +55,10 @@ localStorage.setItem('bookTable',JSON.stringify(bookTable));
 
   return (
     <>
-     {/* <Remove/> */}
-     {/* <Update/> */}
+    
      <Register book={bookTable[0]}/>
      <Display book={bookTable[0]}/>
-     <BookCard book={bookTable[0]}/>
+     {/* <BookCard book={bookTable[0]}/> */}
     </>
   )
 }

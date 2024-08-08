@@ -1,119 +1,177 @@
-import React from "react";
+
+
+import React, { useState } from 'react';
 import {addbook} from './add-book';
-import { useState } from "react";
-
-
+// import addBook from "./addBook"
 function register() {
-       
-       const [user, setUser] = useState("");
-       const [username, setUsername] = useState("");
-       const [book, setBook] = useState("");
-       const [price, setPrice] = useState("");
 
-       const handleChange = (event) => {
-              const name = event.target.name;
-              const value = event.target.value;
-              setUser(values => ({...values, [name]: value}))
-              setUsername(values => ({...values, [name]: value}))
-              setBook(values => ({...values, [name]: value}))
-              setPrice(values => ({...values, [name]: value}))
-       }
+       const [formData, setFormData] = useState({
+               author: '',
+               title: '',
+               edition: '',
+               numPages: '',
+               numberOfPages: '',
+               coverDesign: '',
+               releaseDate: '',
+               });
 
-       const handleSubmit = (event) => {
-              event.preventDefault();
-              console.log(" this is the input from the form",book);
-              alert("Successful");
-              addbook(book)
-       }
-
-    return(
-     <>
-       
-
-     <form onSubmit={handleSubmit} style={{
-        display: "flex",
-        flexDirection: "column",
-        alignIitems: "center",
-        padding: "15%",
-        margin: "4%",
-        width: "15%",
-        // height: "100%",
-        borderRadius: "5px",
-        boxShadow: "0 5px 10px rgba(2, 2, 2, 2.1)",
-        backgroundColor: "white",
-        justifyContent: "center",
-     }}>
-
-<h1>Registration Form</h1>
-       
-            <input name="user" 
-                   value={book.user || ""} 
-                   onChange={handleChange}
-       
-                   style={{
-                   fontSize: "15px",
-                   width: "200px",
-                   height: "40px",
-                   textAlign: "center",
-                   marginBottom: "10px",
-                 }} placeholder="ISBN" type="text"/>
+  function handleChange(event) {
+       setFormData({
+         ...formData,
+         [event.target.name]: event.target.value,
+       });
+     };
+   
+     function handleSubmit(event){
+       event.preventDefault();
+       addbook(formData);
+       alert("Added Successfully");
+     };
+   
+return(
+       <>
+       <div style={{backgroundColor: "pink"}}>
+       <form onSubmit={handleSubmit}
+                 style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignIitems: "center",
+                      padding: "15%",
+                      margin: "4%",
+                      width: "12.4%",
+                      height: "200px",
+                      // height: "100%",
+                      borderRadius: "5px",
+                      boxShadow: "0 5px 10px rgba(2, 2, 2, 2.1)",
+                      backgroundColor: "white",
+                      justifyContent: "center",
+                   }}> 
+        
+                
+                <input name="title" id="" placeholder="Name & Suername"  onChange={handleChange}  type="text" 
+                    style={{ 
+                         fontSize: "15px",
+                    width: "200px",
+                    height: "40px",
+                    textAlign: "center",
+                    marginBottom: "10px"
+                    }} />
+                
+                <input  type="text" name="title" id="" placeholder="Title"  onChange={handleChange}
+                     style={{
+                     fontSize: "15px",
+                     width: "200px",
+                     height: "40px",
+                     textAlign: "center",
+                     marginBottom: "10px"
+                }} />
+                
+                <input  type="0" name="releaseDate" id=" " placeholder="ReleaseDate" onChange={handleChange}
+                     style={{
+                     fontSize: "15px",
+                     width: "200px",
+                     height: "40px",
+                     textAlign: "center",
+                     marginBottom: "10px"
+                }} />
             
-          
-            <input name="username" 
-                   value={book.username || ""} 
-                   onChange={handleChange}
-          
-                   style={{
-                   fontSize: "15px",
-                   width: "200px",
-                   height: "40px",
-                   textAlign: "center",
-                   marginBottom: "10px",
-            }} placeholder="Tittle" type="text"/>
-            
-            <input name="book" 
-                   value={book.book || ""} 
-                   onChange={handleChange}
-            style={{
-                   fontSize: "15px",
-                   width: "200px",
-                   height: "40px",
-                   textAlign: "center",
-                   marginBottom: "10px",
-            }} placeholder="Publisher" type="text"/>
-            
-           
-            <input name="price" 
-                   value={book.price || ""} 
-                   onChange={handleChange}
-            style={{
+            <div>
+                <input  type="text" name="edition" id=""  placeholder="Editor" onChange={handleChange}
+                style={{fontSize: "15px",
+                     width: "200px",
+                     height: "40px",
+                     textAlign: "center",
+                     marginBottom: "10px"}} />
+            </div>
+            <div>
+                
+                <input type="text" name="numPages" id="" placeholder="ISBN"  onChange={handleChange} 
+                style={{
+                     fontSize: "15px",
+                     width: "200px",
+                     height: "40px",
+                     textAlign: "center",
+                     marginBottom: "10px"
+                }} />
+                
+                <input  type="text" name="numberOfPages" id="" placeholder="Designer"  onChange={handleChange} 
+                style={{
                    fontSize: "15px",
                    width: "200px",
                    height: "40px",
                    textAlign: "center",
                    marginBottom: "10px"
-            }} placeholder="Amount" type="0"/>
-      
-
-        <button  style={{
-        backgroundColor: "blue",
-        color: "white",
-        padding: "10px 20px",
-        border: "none",
-        borderRadius: "5px",
-        cursor: "pointer",
-        transition: "background-color 0.3s",
-        width: "20%",
-        fontSize: "15px",
-        width: "200px",
-        height: "40px",
-        textAlign: "center",
-        }}>Sign Up</button> 
-     </form>
-     
-     </>
-    )
+                }} />
+                
+                <input  type="text" name="pages" id="" placeholder="Pages"  onChange={handleChange} 
+                style={{
+                     fontSize: "15px",
+                     width: "200px",
+                     height: "40px",
+                     textAlign: "center",
+                     marginBottom: "10px"
+                }} />
+            
+            </div>
+            <div>
+              
+                <input type="text" name="coverDesign" id="" placeholder="CoverDesign" value="CoverDesign" onChange={handleChange} 
+                style={{
+                 fontSize: "15px",
+                 width: "200px",
+                 height: "40px",
+                 textAlign: "center",
+                 marginBottom: "10px"
+                }}/>
+                
+                <input  type="text" name="coverDesign" id="" placeholder="CoverDesign"  onChange={handleChange} 
+                 style={{
+                    fontSize: "15px",
+                    width: "200px",
+                    height: "40px",
+                    textAlign: "center",
+                    marginBottom: "10px"
+               }}/>
+               
+            
+            </div>
+            <div>
+                
+                <input type="text" name="numPages" id="" placeholder="Nuumber of pages"  onChange={handleChange} 
+                style={{
+                      fontSize: "15px",
+                      width: "200px",
+                      height: "40px",
+                      textAlign: "center",
+                      marginBottom: "10px"
+                }}/>
+                
+                <input type="text" name="pages" id="" placeholder="Pages"  onChange={handleChange}
+            style={{
+                 fontSize: "15px",
+                 width: "200px",
+                 height: "40px",
+                 textAlign: "center",
+                 marginBottom: "10px"
+            }}/>
+            
+            </div>
+            <button type="submit" 
+        style={{
+               
+              fontSize: "15px",
+              width: "200px",
+              height: "40px",
+              textAlign: "center",
+              marginBottom: "10px"
+        }}>
+        
+        submit</button>
+        
+        
+      </form>
+      </div>
+    </>
+  )
 }
-
-
-export default register
+export default register;

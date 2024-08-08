@@ -1,4 +1,4 @@
-
+import Remove from "./removeBook"
 
 function BookCard({book}) {
  console.log(book)
@@ -7,6 +7,7 @@ function BookCard({book}) {
 
     return(
         <>
+        
      <div className="bookcard" style={{
          display: "flex",
          flexDirection: "column",
@@ -60,6 +61,7 @@ function BookCard({book}) {
         width: "20%",
         }}>Add To Card</button> */}
 
+      <Remove isbn={book.isbn}/>
      </div>
         </>
     )
